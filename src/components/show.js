@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 // example class based component (smart component)
-class App extends Component {
+class Show extends Component {
   constructor(props) {
     super(props);
 
@@ -18,4 +18,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Show;
