@@ -1,6 +1,97 @@
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: sans-serif;
   color: rgb(10%, 10%, 10%);
   background: darken(white, 10%);
-  margin: 50px;
+  margin: 20px;
+}
+
+.nav {
+  background-color: white;
+  padding: 10px;
+
+  border-radius: 5px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    border-radius: 5px;
+    padding: 10px;
+    text-decoration: none;
+
+    color: black;
+  }
+
+  a:last-child {
+    color: darken(#00ff00, 10%);
+    border: 1px solid darken(#00ff00, 10%);
+  }
+}
+
+.new, .post {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+
+  label {
+    display: block;
+  }
+
+  input {
+    padding: 5px;
+    font-size: 1.2em;
+    width: 100%;
+  }
+
+  button, a {
+    border-radius: 5px;
+    -webkit-appearance: none;
+    background-color: white;
+    padding: 10px;
+    text-decoration: none;
+
+    color: black;
+
+    font-size: 14px;
+
+    margin: 10px 3px;
+    cursor: pointer;
+  }
+
+  button {
+    color: darken(#00ff00, 10%);
+    border: 1px solid darken(#00ff00, 10%);
+  }
+
+  a, .delete {
+    color: darken(#ff0000, 10%);
+    border: 1px solid darken(#ff0000, 10%);
+  }
+}
+
+.posts {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      border: 1px solid black;
+      border-radius: 5px;
+      margin: 2px 0;
+
+      a {
+        color: black;
+        padding: 10px;
+        display: block;
+      }
+    }
+  }
 }

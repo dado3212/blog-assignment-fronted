@@ -44,17 +44,23 @@ class New extends Component {
 
   render() {
     return (
-      <div>
+      <div className="new">
         <h3>Create A New Post</h3>
         <form onSubmit={this.onSubmit}>
-          <label htmlFor="title">Title</label>
-          <input onChange={this.onTitleChange} type="text" id="title" placeholder="title" value={this.state.title} />
+          <div>
+            <label htmlFor="title">Title</label>
+            <input onChange={this.onTitleChange} type="text" id="title" placeholder="title" value={this.state.title} />
+          </div>
 
-          <label htmlFor="tags">Tags</label>
-          <input onChange={this.onTagsChange} type="text" id="tags" placeholder="tags" value={this.state.tags} />
+          <div>
+            <label htmlFor="tags">Tags</label>
+            <input onChange={this.onTagsChange} type="text" id="tags" placeholder="tags" value={this.state.tags} />
+          </div>
 
-          <label htmlFor="content">Content</label>
-          <input onChange={this.onContentChange} type="text" id="content" placeholder="content" value={this.state.content} />
+          <div>
+            <label htmlFor="content">Content</label>
+            <input onChange={this.onContentChange} type="text" id="content" placeholder="content" value={this.state.content} />
+          </div>
 
           <button type="submit">Submit</button>
           <Link to="/">Cancel</Link>

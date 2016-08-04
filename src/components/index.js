@@ -17,21 +17,29 @@ class Index extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <ul>
-          {this.props.posts.map(post => {
-            return (
-              <li key={post.id}>
-                <Link to={`/posts/${post.id}`}>
-                  {post.title}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    );
+    if (this.props.posts.length == 0) {
+      return (
+        <div className="posts">
+          <h3>No posts...</h3>
+        </div>
+      );
+    } else {
+      return (
+        <div className="posts">
+          <ul>
+            {this.props.posts.map(post => {
+              return (
+                <li key={post.id}>
+                  <Link to={`/posts/${post.id}`}>
+                    {post.title}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      );
+    }
   }
 }
 

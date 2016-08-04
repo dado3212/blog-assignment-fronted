@@ -69,7 +69,7 @@ class Show extends Component {
       );
     } else if (this.state.isEditing) { // Editing mode
       return (
-        <div>
+        <div className="post">
           <form onSubmit={this.onSubmit}>
             <label htmlFor="title">Title</label>
             <input onChange={this.onTitleChange} type="text" id="title" placeholder="title" value={this.state.title} />
@@ -82,12 +82,12 @@ class Show extends Component {
 
             <button type="submit">Done Editing</button>
           </form>
-          <button onClick={this.deletePost}>Delete</button>
+          <button className="delete" onClick={this.deletePost}>Delete</button>
         </div>
       );
     } else { // Normal post
       return (
-        <div>
+        <div className="post">
           <h3>{this.props.post.title}</h3>
           <div dangerouslySetInnerHTML={{ __html: marked(this.props.post.content) }} />
           <button onClick={() => {
@@ -98,7 +98,7 @@ class Show extends Component {
               content: this.props.post.content,
             });
           }}>Edit Post</button>
-          <button onClick={this.deletePost}>Delete</button>
+          <button className="delete" onClick={this.deletePost}>Delete</button>
         </div>
       );
     }
