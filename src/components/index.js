@@ -21,7 +21,7 @@ class Index extends Component {
       return (
         <div className="posts">
           <h3>Posts</h3>
-          Loading...
+          No posts.
         </div>
       );
     } else {

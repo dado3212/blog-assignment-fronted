@@ -78,7 +78,7 @@ class Show extends Component {
             <input onChange={this.onTagsChange} type="text" id="tags" placeholder="tags" value={this.state.tags} />
 
             <label htmlFor="content">Content</label>
-            <input onChange={this.onContentChange} type="text" id="content" placeholder="content" value={this.state.content} />
+            <textarea onChange={this.onContentChange} type="text" id="content" placeholder="content" value={this.state.content} />
 
             <button type="submit">Done Editing</button>
           </form>

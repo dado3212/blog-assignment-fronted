@@ -60,7 +60,7 @@ export function updatePost(id, post) {
         type: 'UPDATE_POST',
         payload: response.data,
       });
-      browserHistory.push(`/posts/${id}`);
+      browserHistory.push('/');
     }).catch(error => {
       console.log(error);
     });
