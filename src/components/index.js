@@ -22,7 +22,7 @@ class Index extends Component {
         <ul>
           {this.props.posts.map(post => {
             return (
-              <li>
+              <li key={post.id}>
                 <Link to={`/posts/${post.id}`}>
                   {post.title}
                 </Link>
