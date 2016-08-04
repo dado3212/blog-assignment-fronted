@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
+import { Link } from 'react-router';
 
 // example class based component (smart component)
 class Index extends Component {
@@ -9,13 +12,33 @@ class Index extends Component {
     this.state = {};
   }
 
+  componentWillMount() {
+    this.props.fetchPosts();
+  }
+
   render() {
     return (
       <div>
-        {this.props.children}
+        <ul>
+          {this.props.posts.map(post => {
+            return (
+              <li>
+                <Link to={`/posts/${post.id}`}>
+                  {post.title}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     );
   }
 }
 
-export default Index;
+const mapDispatchToProps = (state) => (
+  {
+    posts: state.posts.all,
+  }
+);
+
+export default connect(mapDispatchToProps, actions)(Index);
