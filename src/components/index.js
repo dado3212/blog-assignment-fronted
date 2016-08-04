@@ -17,15 +17,17 @@ class Index extends Component {
   }
 
   render() {
-    if (this.props.posts.length == 0) {
+    if (this.props.posts.length === 0) {
       return (
         <div className="posts">
-          <h3>No posts...</h3>
+          <h3>Posts</h3>
+          Loading...
         </div>
       );
     } else {
       return (
         <div className="posts">
+          <h3>Posts</h3>
           <ul>
             {this.props.posts.map(post => {
               return (
@@ -33,6 +35,7 @@ class Index extends Component {
                   <Link to={`/posts/${post.id}`}>
                     {post.title}
                   </Link>
+                  {post.tags}
                 </li>
               );
             })}

@@ -89,6 +89,7 @@ class Show extends Component {
       return (
         <div className="post">
           <h3>{this.props.post.title}</h3>
+          <h5>{this.props.post.tags}</h5>
           <div dangerouslySetInnerHTML={{ __html: marked(this.props.post.content) }} />
           <button onClick={() => {
             this.setState({
