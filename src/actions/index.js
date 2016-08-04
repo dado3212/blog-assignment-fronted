@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { browserHistory } from 'react-router';
 
 // keys for actiontypes
 export const ActionTypes = {
@@ -45,6 +46,7 @@ export function createPost(post) {
         type: 'CREATE_POST',
         payload: response.data,
       });
+      browserHistory.push('/');
     }).catch(error => {
       console.log(error);
     });
@@ -58,6 +60,7 @@ export function updatePost(id, post) {
         type: 'UPDATE_POST',
         payload: response.data,
       });
+      browserHistory.push(`/posts/${id}`);
     }).catch(error => {
       console.log(error);
     });
@@ -71,6 +74,7 @@ export function deletePost(id) {
         type: 'DELETE_POST',
         payload: response.data,
       });
+      browserHistory.push('/');
     }).catch(error => {
       console.log(error);
     });
