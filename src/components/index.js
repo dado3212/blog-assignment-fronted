@@ -35,7 +35,7 @@ class Index extends Component {
                   <Link to={`/posts/${post.id}`}>
                     {post.title}
                   </Link>
-                  {post.tags}
+                  {post.tags.join(', ')}
                 </li>
               );
             })}

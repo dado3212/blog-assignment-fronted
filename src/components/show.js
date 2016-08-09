@@ -39,7 +39,7 @@ class Show extends Component {
   }
 
   onTagsChange(event) {
-    this.setState({ tags: event.target.value });
+    this.setState({ tags: event.target.value.split(' ') });
   }
 
   onContentChange(event) {
@@ -75,7 +75,7 @@ class Show extends Component {
             <input onChange={this.onTitleChange} type="text" id="title" placeholder="title" value={this.state.title} />
 
             <label htmlFor="tags">Tags</label>
-            <input onChange={this.onTagsChange} type="text" id="tags" placeholder="tags" value={this.state.tags} />
+            <input onChange={this.onTagsChange} type="text" id="tags" placeholder="tags" value={this.state.tags.join(' ')} />
 
             <label htmlFor="content">Content</label>
             <textarea onChange={this.onContentChange} type="text" id="content" placeholder="content" value={this.state.content} />
@@ -89,7 +89,7 @@ class Show extends Component {
       return (
         <div className="post">
           <h3>{this.props.post.title}</h3>
-          <h5>{this.props.post.tags}</h5>
+          <h5>{this.props.post.tags.join(', ')}</h5>
           <div dangerouslySetInnerHTML={{ __html: marked(this.props.post.content) }} />
           <button onClick={() => {
             this.setState({
