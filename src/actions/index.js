@@ -10,7 +10,7 @@ export const ActionTypes = {
   DELETE_POST: 'DELETE_POST',
 };
 
-const ROOT_URL = 'http://localhost:9090/api';
+const ROOT_URL = 'http://dado3212blog-api.herokuapp.com/api';
 const API_KEY = '?key=A_BEALS';
 
 export function fetchPosts() {
