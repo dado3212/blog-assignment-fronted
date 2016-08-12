@@ -7,25 +7,45 @@ body {
 
 .nav {
   background-color: white;
-  padding: 10px;
+  padding: 20px 10px;
 
   border-radius: 5px;
 
   display: flex;
-  justify-content: space-between;
   align-items: center;
 
-  a {
-    border-radius: 5px;
-    padding: 10px;
-    text-decoration: none;
+  .item {
+    display: inline-block;
+    cursor: pointer;
 
-    color: black;
+    margin: 0px 5px;
+
+    &.newPost a, &.signUp a, &.signIn a {
+      color: darken(#00ff00, 10%);
+      border: 1px solid darken(#00ff00, 10%);
+    }
+
+    &.signOut button {
+      cursor: pointer;
+      font-size: 16px;
+      color: darken(#ff0000, 10%);
+      border: 1px solid darken(#ff0000, 10%);
+    }
+
+    a, button {
+      background-color: transparent;
+      -webkit-appearance: none;
+
+      border-radius: 5px;
+      padding: 10px;
+      text-decoration: none;
+
+      color: black;
+    }
   }
 
-  a:last-child {
-    color: darken(#00ff00, 10%);
-    border: 1px solid darken(#00ff00, 10%);
+  > .item:nth-child(2) {
+    margin-left: auto;
   }
 }
 
