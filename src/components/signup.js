@@ -12,10 +12,12 @@ class SignUp extends Component {
     this.state = {
       email: '',
       password: '',
+      name: '',
     };
 
     this.onEmailChange = this.onEmailChange.bind(this);
     this.onPasswordChange = this.onPasswordChange.bind(this);
+    this.onNameChange = this.onNameChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
@@ -25,6 +27,10 @@ class SignUp extends Component {
 
   onPasswordChange(event) {
     this.setState({ password: event.target.value });
+  }
+
+  onNameChange(event) {
+    this.setState({ name: event.target.value });
   }
 
   onSubmit(event) {
@@ -40,6 +46,11 @@ class SignUp extends Component {
       <div className="new">
         <h3>Sign Up</h3>
         <form onSubmit={this.onSubmit}>
+          <div>
+            <label htmlFor="name">Name</label>
+            <input onChange={this.onNameChange} type="text" id="name" placeholder="name" value={this.state.name} />
+          </div>
+
           <div>
             <label htmlFor="email">Email</label>
             <input onChange={this.onEmailChange} type="email" id="email" placeholder="email" value={this.state.email} />

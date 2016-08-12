@@ -119,9 +119,9 @@ export function signinUser({ email, password }) {
   };
 }
 
-export function signupUser({ email, password }) {
+export function signupUser({ email, password, name }) {
   return (dispatch) => {
-    axios.post(`${ROOT_URL}/signup/${API_KEY}`, { email, password }).then(response => {
+    axios.post(`${ROOT_URL}/signup/${API_KEY}`, { email, password, name }).then(response => {
       dispatch({ type: ActionTypes.AUTH_USER });
       localStorage.setItem('token', response.data.token);
       browserHistory.push('/');
