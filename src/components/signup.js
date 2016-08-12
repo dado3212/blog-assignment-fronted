@@ -38,6 +38,7 @@ class SignUp extends Component {
     this.props.signupUser({
       email: this.state.email,
       password: this.state.password,
+      name: this.state.name,
     });
   }
 

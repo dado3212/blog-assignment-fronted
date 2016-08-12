@@ -89,6 +89,27 @@ body {
     color: darken(#ff0000, 10%);
     border: 1px solid darken(#ff0000, 10%);
   }
+
+  h3 {
+    text-decoration: underline;
+    margin: 0;
+  }
+
+  h4 {
+    font-weight: normal;
+    margin: 2px 0;
+    font-size: 0.8em;
+  }
+
+  h5 {
+    font-weight: normal;
+    margin: 8px 0;
+    font-size: 16px;
+
+    &:before {
+      content: "Tags: ";
+    }
+  }
 }
 
 .posts {

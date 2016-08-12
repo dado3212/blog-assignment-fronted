@@ -86,22 +86,35 @@ class Show extends Component {
         </div>
       );
     } else { // Normal post
-      return (
-        <div className="post">
-          <h3>{this.props.post.title}</h3>
-          <h5>{this.props.post.tags.join(', ')}</h5>
-          <div dangerouslySetInnerHTML={{ __html: marked(this.props.post.content) }} />
-          <button onClick={() => {
-            this.setState({
-              isEditing: true,
-              title: this.props.post.title,
-              tags: this.props.post.tags,
-              content: this.props.post.content,
-            });
-          }}>Edit Post</button>
-          <button className="delete" onClick={this.deletePost}>Delete</button>
-        </div>
-      );
+      if (this.props.authenticated) {
+        return (
+          <div className="post">
+            <h3>{this.props.post.title}</h3>
+            <h4>
+              by {(this.props.post.author) ? this.props.post.author.name : ''}
+            </h4>
+            <h5>{this.props.post.tags.join(', ')}</h5>
+            <div dangerouslySetInnerHTML={{ __html: marked(this.props.post.content) }} />
+            <button onClick={() => {
+              this.setState({
+                isEditing: true,
+                title: this.props.post.title,
+                tags: this.props.post.tags,
+                content: this.props.post.content,
+              });
+            }}>Edit Post</button>
+            <button className="delete" onClick={this.deletePost}>Delete</button>
+          </div>
+        );
+      } else {
+        return (
+          <div className="post">
+            <h3>{this.props.post.title}</h3>
+            <h5>{this.props.post.tags.join(', ')}</h5>
+            <div dangerouslySetInnerHTML={{ __html: marked(this.props.post.content) }} />
+          </div>
+        );
+      }
     }
   }
 }
@@ -109,6 +122,7 @@ class Show extends Component {
 const mapDispatchToProps = (state) => (
   {
     post: state.posts.currentPost,
+    authenticated: state.auth.authenticated,
   }
 );
 
