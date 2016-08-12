@@ -12,7 +12,7 @@ class SignUp extends Component {
     this.state = {
       email: '',
       password: '',
-      name: '',
+      username: '',
     };
 
     this.onEmailChange = this.onEmailChange.bind(this);
@@ -30,7 +30,7 @@ class SignUp extends Component {
   }
 
   onNameChange(event) {
-    this.setState({ name: event.target.value });
+    this.setState({ username: event.target.value });
   }
 
   onSubmit(event) {
@@ -38,7 +38,7 @@ class SignUp extends Component {
     this.props.signupUser({
       email: this.state.email,
       password: this.state.password,
-      name: this.state.name,
+      username: this.state.username,
     });
   }
 

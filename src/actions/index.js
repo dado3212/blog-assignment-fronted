@@ -13,7 +13,7 @@ export const ActionTypes = {
   AUTH_ERROR: 'AUTH_ERROR',
 };
 
-const ROOT_URL = 'http://cs52-hw5-p2.herokuapp.com/api';
+const ROOT_URL = 'https://cs52-hw5-p2.herokuapp.com/api';
 const API_KEY = '?key=A_BEALS';
 
 // Helper functions
@@ -119,9 +119,9 @@ export function signinUser({ email, password }) {
   };
 }
 
-export function signupUser({ email, password, name }) {
+export function signupUser({ email, password, username }) {
   return (dispatch) => {
-    axios.post(`${ROOT_URL}/signup/${API_KEY}`, { email, password, name }).then(response => {
+    axios.post(`${ROOT_URL}/signup/${API_KEY}`, { email, password, username }).then(response => {
       dispatch({ type: ActionTypes.AUTH_USER });
       localStorage.setItem('token', response.data.token);
       browserHistory.push('/');

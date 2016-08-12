@@ -91,7 +91,7 @@ class Show extends Component {
           <div className="post">
             <h3>{this.props.post.title}</h3>
             <h4>
-              by {(this.props.post.author) ? this.props.post.author.name : ''}
+              by {(this.props.post.author) ? this.props.post.author.username : ''}
             </h4>
             <h5>{this.props.post.tags.join(', ')}</h5>
             <div dangerouslySetInnerHTML={{ __html: marked(this.props.post.content) }} />
