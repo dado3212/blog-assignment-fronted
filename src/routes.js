@@ -6,15 +6,15 @@ import Index from './components/index';
 import New from './components/new';
 import Show from './components/show';
 
-import Signin from './components/singin';
-import Signup from './components/singup';
+import SignIn from './components/signin';
+import SignUp from './components/signup';
 
 export default(
   <Route path="/" component={App}>
     <IndexRoute component={Index} />
     <Route path="posts/new" component={New} />
     <Route path="posts/:id" component={Show} />
-    <Route path="signin" component={Signin} />
-    <Route path="signup" component={Signup} />
+    <Route path="signin" component={SignIn} />
+    <Route path="signup" component={SignUp} />
   </Route>
 );
