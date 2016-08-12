@@ -66,7 +66,7 @@ export function fetchPost(id) {
 
 export function createPost(post) {
   return (dispatch) => {
-    axios.post(`${ROOT_URL}/posts/${API_KEY}`, post).then(response => {
+    axios.post(`${ROOT_URL}/posts/${API_KEY}`, post, { headers: { authorization: localStorage.getItem('token') } }).then(response => {
       dispatch({
         type: 'CREATE_POST',
         payload: response.data,
@@ -80,7 +80,7 @@ export function createPost(post) {
 
 export function updatePost(id, post) {
   return (dispatch) => {
-    axios.put(`${ROOT_URL}/posts/${id}${API_KEY}`, post).then(response => {
+    axios.put(`${ROOT_URL}/posts/${id}${API_KEY}`, post, { headers: { authorization: localStorage.getItem('token') } }).then(response => {
       dispatch({
         type: 'UPDATE_POST',
         payload: response.data,
@@ -94,7 +94,7 @@ export function updatePost(id, post) {
 
 export function deletePost(id) {
   return (dispatch) => {
-    axios.delete(`${ROOT_URL}/posts/${id}${API_KEY}`).then(response => {
+    axios.delete(`${ROOT_URL}/posts/${id}${API_KEY}`, { headers: { authorization: localStorage.getItem('token') } }).then(response => {
       dispatch({
         type: 'DELETE_POST',
         payload: response.data,
