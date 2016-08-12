@@ -8,11 +8,36 @@ export const ActionTypes = {
   CREATE_POST: 'CREATE_POST',
   UPDATE_POST: 'UPDATE_POST',
   DELETE_POST: 'DELETE_POST',
+  AUTH_USER: 'AUTH_USER',
+  DEAUTH_USER: 'DEAUTH_USER',
+  AUTH_ERROR: 'AUTH_ERROR',
 };
 
-const ROOT_URL = 'http://dado3212blog-api.herokuapp.com/api';
+const ROOT_URL = 'http://localhost:9090/api';
 const API_KEY = '?key=A_BEALS';
 
+// Helper functions
+// deletes token from localstorage
+// and deauths
+export function signoutUser() {
+  return (dispatch) => {
+    localStorage.removeItem('token');
+    dispatch({ type: ActionTypes.DEAUTH_USER });
+    browserHistory.push('/');
+  };
+}
+
+// trigger to deauth if there is error
+// can also use in your error reducer if you have one to display an error message
+export function authError(error) {
+  return {
+    type: ActionTypes.AUTH_ERROR,
+    message: error,
+  };
+}
+
+
+// Posts function
 export function fetchPosts() {
   return (dispatch) => {
     axios.get(`${ROOT_URL}/posts${API_KEY}`).then(response => {
@@ -77,6 +102,31 @@ export function deletePost(id) {
       browserHistory.push('/');
     }).catch(error => {
       console.log(error);
+    });
+  };
+}
+
+// User function
+export function signinUser({ email, password }) {
+  return (dispatch) => {
+    axios.post(`${ROOT_URL}/signin/${API_KEY}`, { email, password }).then(response => {
+      dispatch({ type: ActionTypes.AUTH_USER });
+      localStorage.setItem('token', response.data.token);
+      browserHistory.push('/');
+    }).catch(error => {
+      dispatch(authError(`Sign In Failed: ${error.response.data}`));
+    });
+  };
+}
+
+export function signupUser({ email, password }) {
+  return (dispatch) => {
+    axios.post(`${ROOT_URL}/signup/${API_KEY}`, { email, password }).then(response => {
+      dispatch({ type: ActionTypes.AUTH_USER });
+      localStorage.setItem('token', response.data.token);
+      browserHistory.push('/');
+    }).catch(error => {
+      dispatch(authError(`Sign Up Failed: ${error.response.data}`));
     });
   };
 }
