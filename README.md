@@ -1,4 +1,4 @@
-# Blog Assignment (Frontedn) - CS52
+# Blog Assignment (Frontend) - CS52
 
 ### What it is
 
