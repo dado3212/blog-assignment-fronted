@@ -1,7 +1,9 @@
-# HW 4 - Redux (also hw5)
+# Blog Assignment (Frontedn) - CS52
 
-All working!
+### What it is
 
-Used a React/Redux stack with Passport to handle the front end for a login-protected blog.
+This was a project to create a fully working blog with frontend and backend.  The frontend used a React/Redux stack to handle all of the user interactions in creating users, logins, and creating/modifying/deleting posts.  The backend used Express and Mongo to create a RESTful API to interact with the frontend.  The entire project used Passport.js for authentication, in order to keep the backend and frontend user-protected.
 
-EC: Not really, but there is some basic styling to make it not look like a complete train wreck.
+### Links
+
+Checkout the frontend live at http://dado3212blog-hw5.surge.sh, and the backend live at http://dado3212blog-api.herokuapp.com/api.
